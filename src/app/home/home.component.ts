@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
             // add an image from the app file system
             const imgSrc = new ImageSource();
 
-            const imageAsset = new ImageAsset('https://images.pexels.com/photos/2440080/pexels-photo-2440080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            const imageAsset = new ImageAsset('~/images/image.jpg');
             // const imageAsset = new ImageAsset('../../assets/image.jpeg');
             imgSrc.fromAsset(imageAsset);
             let imgString = await imgSrc.toBase64String('jpeg');
