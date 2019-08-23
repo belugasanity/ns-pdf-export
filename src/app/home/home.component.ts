@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import * as fs from 'tns-core-modules/file-system';
 import {ImageSource} from 'tns-core-modules/image-source';
 import { ImageAsset } from 'tns-core-modules/image-asset/image-asset';
+import { knownFolders, Folder } from "tns-core-modules/file-system";
 
 
 global['window'] = {
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
     exportPath: fs.Folder;
 
     constructor() {
-        
+
     }
 
     ngOnInit(): void {
@@ -49,8 +50,8 @@ export class HomeComponent implements OnInit {
         // console.log(`customer folder: ${customFolderPath}`);
         // this.exportPath = fs.Folder.fromPath(customFolderPath);
         // console.log(`export path: ${this.exportPath}`);
-        let documentsFolder = fs.knownFolders.documents();
-        let path = fs.path.join(documentsFolder.path, 'pdfExport');
+        const documentsFolder = <Folder>knownFolders.documents();
+        const path = fs.path.join(documentsFolder.path, 'pdfExport');
         this.exportPath = fs.Folder.fromPath(path);
     }
 
@@ -67,21 +68,22 @@ export class HomeComponent implements OnInit {
             // add an image from the app file system
             const imgSrc = new ImageSource();
 
-            const imageAsset = new ImageAsset('~/images/image.jpg');
-            // const imageAsset = new ImageAsset('../../assets/image.jpeg');
-            imgSrc.fromAsset(imageAsset);
+            // Load from the app/images/image.jpg
+            const fle = knownFolders.currentApp().getFile('./app/images/image.jpg');
+            const imageAsset = new ImageAsset(fle.path);
+            await imgSrc.fromAsset(imageAsset);
             let imgString = await imgSrc.toBase64String('jpeg');
             imgString = 'data:image/jpeg;base64,' + imgString;
 
             doc.addImage(imgString,'JPEG', 10, 20, 30, 30, null, 'FAST');
 
-            let fileData = doc.output('datauristring');
+            const fileData = doc.output('datauristring');
 
             const file: fs.File = <fs.File>this.exportPath.getFile("pdf-export.pdf");
             // Cut out the data piece .. remove 'data:...;base64,'
             const tempData = fileData.split(",")[1];
             // decode the base64 piece
-            let data = android.util.Base64.decode(tempData, android.util.Base64.DEFAULT);
+            const data = android.util.Base64.decode(tempData, android.util.Base64.DEFAULT);
             // write to the file
             file.writeSync(data);
             alert('File written');
