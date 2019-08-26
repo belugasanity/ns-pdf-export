@@ -18,7 +18,7 @@ In order to write to the device file system we installed the nativescript-permis
 Plugin docs: https://market.nativescript.org/plugins/nativescript-permissions
 
 # Creating the PDF
-We could not get the jsPDF package to work with {N} 6 at the latest version. Check the package.json and you'll see that we are using version 1.3.5 and @types/jspdf version 1.3.1
+We could not get the jsPDF package to work with {N} 6 at the latest version so we changed to an older version and it is working. Check the package.json and you'll see that we are using version 1.3.5 and @types/jspdf version 1.3.1
 The createPdf() method in the home.component is where the magic happens and has comments throughout to explain what's happening. Note we are processing and adding an image from a file stored within the app.
 
 Plugin docs: https://rawgit.com/MrRio/jsPDF/master/docs/jsPDF.html
