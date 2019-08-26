@@ -44,15 +44,20 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // let externPath = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS).toString();
+        let externPath = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS).toString();
         // console.log(`external path: ${externPath}`);
-        // let customFolderPath = fs.path.join(externPath, "pdf-export");
+        let customFolderPath = fs.path.join(externPath, "pdfExport");
         // console.log(`customer folder: ${customFolderPath}`);
-        // this.exportPath = fs.Folder.fromPath(customFolderPath);
+        this.exportPath = fs.Folder.fromPath(customFolderPath);
         // console.log(`export path: ${this.exportPath}`);
-        const documentsFolder = <Folder>knownFolders.documents();
-        const path = fs.path.join(documentsFolder.path, 'pdfExport');
-        this.exportPath = fs.Folder.fromPath(path);
+
+        // const documentsFolder = <Folder>knownFolders.documents();
+        // const path = fs.path.join(documentsFolder.path, 'pdfExport');
+        // this.exportPath = fs.Folder.fromPath(path);
+
+        // let documentsFolder = fs.knownFolders.documents();
+        // let path = fs.path.join(documentsFolder.path, 'pdfExport');
+        // this.exportPath = fs.Folder.fromPath(path);
     }
 
     public async createPdf() {
