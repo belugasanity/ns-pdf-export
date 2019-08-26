@@ -1,0 +1,213 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 1,
+    "pending": 2,
+    "failures": 0,
+    "start": "2019-08-26T20:27:18.100Z",
+    "end": "2019-08-26T20:28:48.049Z",
+    "duration": 89949,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 66.7,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "warning"
+  },
+  "suites": {
+    "uuid": "29c01f2c-4420-4136-b8fd-4a5eb25ea1d4",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [
+      {
+        "title": "\"before all\" hook: start server",
+        "fullTitle": "\"before all\" hook: start server",
+        "timedOut": false,
+        "duration": 61342,
+        "pass": false,
+        "fail": false,
+        "pending": false,
+        "context": "[\n  \"on_server_started\",\n  \"./on_server_started.png\"\n]",
+        "code": "return __awaiter(this, void 0, void 0, function* () {\n    nativescript_dev_appium_1.nsCapabilities.testReporter.context = this;\n    yield nativescript_dev_appium_1.startServer();\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "b5238561-5e1c-4216-b726-1c2cf7079b05",
+        "isHook": true,
+        "skipped": false
+      }
+    ],
+    "afterHooks": [
+      {
+        "title": "\"after all\" hook: stop server",
+        "fullTitle": "\"after all\" hook: stop server",
+        "timedOut": false,
+        "duration": 290,
+        "pass": false,
+        "fail": false,
+        "pending": false,
+        "code": "return __awaiter(this, void 0, void 0, function* () {\n    yield nativescript_dev_appium_1.stopServer();\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "ebb67b50-bea5-467e-9418-49dde5635cd6",
+        "isHook": true,
+        "skipped": false
+      }
+    ],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "af355b64-8845-47ee-b9df-690b6f007d73",
+        "title": "sample scenario",
+        "fullFile": "/Users/austin/Documents/github-examples/ns-pdf-export/e2e/sample.e2e-spec.js",
+        "file": "/e2e/sample.e2e-spec.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should find an element by text",
+            "fullTitle": "sample scenario should find an element by text",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": true,
+            "code": "",
+            "err": {},
+            "isRoot": false,
+            "uuid": "a4ce716f-b0f5-4b65-96bb-43ece2305f6d",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "should find an element by type",
+            "fullTitle": "sample scenario should find an element by type",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": true,
+            "code": "",
+            "err": {},
+            "isRoot": false,
+            "uuid": "f60ba887-d8dd-4b7c-be0e-4e0e605794ea",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [
+          "a4ce716f-b0f5-4b65-96bb-43ece2305f6d",
+          "f60ba887-d8dd-4b7c-be0e-4e0e605794ea"
+        ],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 999999
+      },
+      {
+        "uuid": "85829b78-7b13-41bf-8e45-6e707d622347",
+        "title": "Generate PDF",
+        "fullFile": "/Users/austin/Documents/github-examples/ns-pdf-export/e2e/sample.e2e-spec.js",
+        "file": "/e2e/sample.e2e-spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "Generate PDF \"before all\" hook",
+            "timedOut": false,
+            "duration": 16950,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "context": "[\n  \"appium_driver_started\",\n  \"./appium_driver_started.png\"\n]",
+            "code": "return __awaiter(this, void 0, void 0, function* () {\n    nativescript_dev_appium_1.nsCapabilities.testReporter.context = this;\n    driver = yield nativescript_dev_appium_1.createDriver();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "68a9b42c-3e49-445b-8bd4-043fb5be2e1d",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "Generate PDF \"after all\" hook",
+            "timedOut": false,
+            "duration": 1119,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "context": "[\n  \"appium_driver_quit\",\n  \"./appium_driver_quit.png\",\n  \"on_server_stopped\",\n  \"./on_server_stopped.png\"\n]",
+            "code": "return __awaiter(this, void 0, void 0, function* () {\n    yield driver.quit();\n    console.log(\"Quit driver!\");\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "dbfe584b-cd43-412f-a84f-d86777ee3b72",
+            "isHook": true,
+            "skipped": false
+          },
+          {
+            "title": "\"after each\" hook",
+            "fullTitle": "Generate PDF \"after each\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "return __awaiter(this, void 0, void 0, function* () {\n    if (this.currentTest.state === \"failed\") {\n        yield driver.logTestArtifacts(this.currentTest.title);\n    }\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "61deba6f-bf1e-4313-abb6-5d2b5dd06abe",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "Should generate the pdf",
+            "fullTitle": "Generate PDF Should generate the pdf",
+            "timedOut": false,
+            "duration": 10241,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "return __awaiter(this, void 0, void 0, function* () {\n    const btn = yield driver.findElementByText('Generate PDF');\n    yield btn.click();\n    yield driver.wait(5000);\n    const okBtn = yield driver.findElementByText('OK');\n    yield okBtn.click();\n    yield driver.wait(4000);\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "51acf092-f859-46f2-a06b-23d6b93d72b3",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "51acf092-f859-46f2-a06b-23d6b93d72b3"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 10241,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 999999
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 999999
+  },
+  "copyrightYear": 2019
+}
