@@ -14,8 +14,6 @@ global['document'] = {
  'createElement': (str) => { return {} }
 };
 global['navigator'] = {};
-// import * as jsPDF from 'jspdf';
-// var base64 = require('base-64');
 var base64 = require('base-64');
 var jsPDF = require('../../../node_modules/jspdf');
 global['btoa'] = (str) => {
@@ -44,15 +42,9 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // let externPath = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS).toString();
-        // console.log(`external path: ${externPath}`);
-        // let customFolderPath = fs.path.join(externPath, "pdf-export");
-        // console.log(`customer folder: ${customFolderPath}`);
-        // this.exportPath = fs.Folder.fromPath(customFolderPath);
-        // console.log(`export path: ${this.exportPath}`);
-        const documentsFolder = <Folder>knownFolders.documents();
-        const path = fs.path.join(documentsFolder.path, 'pdfExport');
-        this.exportPath = fs.Folder.fromPath(path);
+        let externPath = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS).toString();
+        let customFolderPath = fs.path.join(externPath, "pdfExport");
+        this.exportPath = fs.Folder.fromPath(customFolderPath);
     }
 
     public async createPdf() {
@@ -75,10 +67,18 @@ export class HomeComponent implements OnInit {
             let imgString = await imgSrc.toBase64String('jpeg');
             imgString = 'data:image/jpeg;base64,' + imgString;
 
+            // addImage()
+            // param 1 = the image data
+            // param 2 = image file type
+            // param 3-4 = where to position the image on the page
+            // param 5-6 = the image size (in mm)
+            // param 7 = alias
+            // param 8 = compression
+            // more info at https://rawgit.com/MrRio/jsPDF/master/docs/module-addImage.html
             doc.addImage(imgString,'JPEG', 10, 20, 30, 30, null, 'FAST');
-
+            // output the entire pdf file to data uri string
             const fileData = doc.output('datauristring');
-
+            // init the file and path to it
             const file: fs.File = <fs.File>this.exportPath.getFile("pdf-export.pdf");
             // Cut out the data piece .. remove 'data:...;base64,'
             const tempData = fileData.split(",")[1];

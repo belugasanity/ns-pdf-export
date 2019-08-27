@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { isAndroid } from "tns-core-modules/platform";
+import * as permissions from "nativescript-permissions";
 
 @Component({
     selector: "ns-app",
@@ -14,7 +15,15 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
+        permissions.requestPermission([
+            "android.permission.INTERNET",
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+        ], "We need these permissions to save our pdf")
+            .then(function (res) {
+            })
+            .catch(function () {
+            });
     }
 
     getIconSource(icon: string): string {
