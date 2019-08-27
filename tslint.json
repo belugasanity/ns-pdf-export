@@ -44,6 +44,12 @@
       "multiline": "never",
       "singleline": "never"
     }],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-template",
+      "avoid-escape"
+    ],
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "whitespace": [true,
       "check-branch",
