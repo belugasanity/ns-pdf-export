@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { isAndroid } from "tns-core-modules/platform";
+import { AppCenter, AppCenterSettings } from "nativescript-microsoft-appcenter";
 import * as permissions from "nativescript-permissions";
+import * as application from 'tns-core-modules/application';
 
 @Component({
     selector: "ns-app",
@@ -15,6 +17,17 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        if (application.android) {
+            let appCenter: AppCenter = new AppCenter();
+
+            let appCenterSettings: AppCenterSettings = {
+                appSecret: "893d1a36-8753-4ef9-bf61-4590a14afa9d",
+                analytics: true,
+                crashes: true
+            }
+
+            appCenter.start(appCenterSettings);
+        }
         permissions.requestPermission([
             "android.permission.INTERNET",
             "android.permission.READ_EXTERNAL_STORAGE",

@@ -1,5 +1,11 @@
 // Add your native dependencies here:
 
+// dependencies {
+//     def appCenterSdkVersion = '2.3.0'
+//     implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+//     implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+// }
+
 // Uncomment to add recyclerview-v7 dependency
 //dependencies {
 //	implementation 'com.android.support:recyclerview-v7:+'
